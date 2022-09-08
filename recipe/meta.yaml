@@ -1,6 +1,7 @@
 {% set name = "x3270" %}
-{% set version = "4.1.10" %}
-{% set sha256 = "8216572d0a14d4d18e65db97f6e2dd1aeb66eed02b4d544c79ed8d34ea54be71" %}
+{% set version = "4.2.5" %}
+{% set sha256 = "bed21cc51572f0248c9a11436d0f8b79ab971a65dae6b5a857625b173798bf9e" %}
+{% set license_path = "wc3270/LICENSE.txt.tmpl" %}
 
 {% set ver_major_minor = ".".join(version.split(".")[:2]) %}
 {% set ver_patch = version.split(".")[2] %}
@@ -52,7 +53,7 @@ outputs:
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
-      license_file: ws3270/LICENSE.txt
+      license_file: {{ license_path }}
       summary: IBM 3270 terminal emulator shared files & utilities
 
   - name: c3270
@@ -71,7 +72,7 @@ outputs:
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
-      license_file: ws3270/LICENSE.txt
+      license_file: {{ license_path }}
       summary: IBM 3270 terminal emulator (character mode)
 
   - name: s3270
@@ -90,14 +91,14 @@ outputs:
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
-      license_file: ws3270/LICENSE.txt
+      license_file: {{ license_path }}
       summary: IBM 3270 terminal emulator screen scraping tools
 
 about:
   home: http://x3270.bgp.nu/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: ws3270/LICENSE.txt
+  license_file: {{ license_path }}
   doc_url: https://x3270.miraheze.org/wiki/Main_Page
   dev_url: https://sourceforge.net/projects/x3270/
   summary: Suite of IBM 3270 terminal emulators
