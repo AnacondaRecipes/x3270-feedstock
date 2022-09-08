@@ -17,12 +17,13 @@ source:
 
 build:
   number: 0
-  skip: True    # [win or not x86]
+  skip: True    # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - make        # [unix]
+    - gnuconfig   # [unix]
   host:
     #- expat       # needed for `b3270`
     - libiconv    # [osx]

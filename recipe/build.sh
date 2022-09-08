@@ -40,6 +40,9 @@ case "$target_platform" in
         ;;
 esac
 
+cp -fv "${BUILD_PREFIX}/share/gnuconfig/config.guess" .
+cp -fv "${BUILD_PREFIX}/share/gnuconfig/config.sub" .
+
 ./configure --prefix="${PREFIX}" ${config_opts[@]}
 make -j${CPU_COUNT}
 make unix-install
