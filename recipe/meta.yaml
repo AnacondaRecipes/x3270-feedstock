@@ -1,6 +1,6 @@
 {% set name = "x3270" %}
-{% set version = "4.2.5" %}
-{% set sha256 = "bed21cc51572f0248c9a11436d0f8b79ab971a65dae6b5a857625b173798bf9e" %}
+{% set version = "4.3.4" %}
+{% set sha256 = "3b7bf11de9a05a5f203cb845bd8e7fb805c2a06ca606ccf8cdee4ff5c80caa4b" %}
 {% set license_path = "wc3270/LICENSE.txt.tmpl" %}
 
 {% set ver_major_minor = ".".join(version.split(".")[:2]) %}
