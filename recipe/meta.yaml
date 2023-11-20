@@ -5,7 +5,6 @@
 
 {% set ver_major_minor = ".".join(version.split(".")[:2]) %}
 {% set ver_patch = version.split(".")[2] %}
-{% set src_url_dir = "{:02d}.{:02d}".format(*(version.split(".") | map("int"))) %}
 
 package:
   name: {{ name }}-split
@@ -13,7 +12,7 @@ package:
 
 source:
   fn: {{ name|lower }}-{{ version }}.tar.gz
-  url: http://x3270.bgp.nu/download/{{ src_url_dir }}/suite3270-{{ ver_major_minor }}ga{{ ver_patch }}-src.tgz
+  url: https://downloads.sourceforge.net/{{ name }}/suite3270-{{ ver_major_minor }}ga{{ ver_patch }}-src.tgz
   sha256: {{ sha256 }}
 
 build:
