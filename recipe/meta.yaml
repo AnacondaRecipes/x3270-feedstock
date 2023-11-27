@@ -49,6 +49,11 @@ outputs:
         - ncurses
         - openssl
         - readline
+    test:
+      commands:
+        - test -f $PREFIX/etc/x3270/ibm_hosts
+        - which pr3287
+        - which x3270if
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
@@ -68,6 +73,9 @@ outputs:
         - readline
       run:
         - {{ pin_subpackage(name + "-common", exact=True) }}
+    test:
+      commands:
+        - which c3270
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
@@ -87,6 +95,10 @@ outputs:
         - tk
       run:
         - {{ pin_subpackage(name + "-common", exact=True) }}
+    test:
+      commands:
+        - which s3270
+        - which tcl3270
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
