@@ -113,7 +113,12 @@ about:
   doc_url: https://x3270.miraheze.org/wiki/Main_Page
   dev_url: https://sourceforge.net/projects/x3270/
   summary: Suite of IBM 3270 terminal emulators
+  description: Suite of IBM 3270 terminal emulators
 
 extra:
   recipe-maintainers:
     - chenghlee
+  skip-lints:
+    - host_section_needs_exact_pinnings
+    # home url doesn't have an https version
+    - http_url
