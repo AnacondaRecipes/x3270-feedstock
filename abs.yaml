@@ -1,0 +1,5 @@
+upload_channels:
+  - distro-tooling
+
+aggregate_check: False
+

@@ -1,19 +1,17 @@
 {% set name = "x3270" %}
-{% set version = "4.2.5" %}
-{% set sha256 = "bed21cc51572f0248c9a11436d0f8b79ab971a65dae6b5a857625b173798bf9e" %}
+{% set version = "4.3.4" %}
+{% set sha256 = "3b7bf11de9a05a5f203cb845bd8e7fb805c2a06ca606ccf8cdee4ff5c80caa4b" %}
 {% set license_path = "wc3270/LICENSE.txt.tmpl" %}
 
 {% set ver_major_minor = ".".join(version.split(".")[:2]) %}
 {% set ver_patch = version.split(".")[2] %}
-{% set src_url_dir = "{:02d}.{:02d}".format(*(version.split(".") | map("int"))) %}
 
 package:
   name: {{ name }}-split
   version: {{ version }}
 
 source:
-  fn: {{ name|lower }}-{{ version }}.tar.gz
-  url: http://x3270.bgp.nu/download/{{ src_url_dir }}/suite3270-{{ ver_major_minor }}ga{{ ver_patch }}-src.tgz
+  url: https://downloads.sourceforge.net/{{ name }}/suite3270-{{ ver_major_minor }}ga{{ ver_patch }}-src.tgz
   sha256: {{ sha256 }}
 
 build:
@@ -50,6 +48,11 @@ outputs:
         - ncurses
         - openssl
         - readline
+    test:
+      commands:
+        - test -f $PREFIX/etc/x3270/ibm_hosts
+        - which pr3287
+        - which x3270if
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
@@ -69,6 +72,9 @@ outputs:
         - readline
       run:
         - {{ pin_subpackage(name + "-common", exact=True) }}
+    test:
+      commands:
+        - which c3270
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
@@ -88,6 +94,10 @@ outputs:
         - tk
       run:
         - {{ pin_subpackage(name + "-common", exact=True) }}
+    test:
+      commands:
+        - which s3270
+        - which tcl3270
     about:
       home: http://x3270.bgp.nu/
       license: BSD-3-Clause
@@ -102,7 +112,12 @@ about:
   doc_url: https://x3270.miraheze.org/wiki/Main_Page
   dev_url: https://sourceforge.net/projects/x3270/
   summary: Suite of IBM 3270 terminal emulators
+  description: Suite of IBM 3270 terminal emulators
 
 extra:
   recipe-maintainers:
     - chenghlee
+  skip-lints:
+    - host_section_needs_exact_pinnings
+    # home url doesn't have an https version
+    - http_url
