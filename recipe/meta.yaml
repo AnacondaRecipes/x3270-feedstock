@@ -11,7 +11,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name|lower }}-{{ version }}.tar.gz
   url: https://downloads.sourceforge.net/{{ name }}/suite3270-{{ ver_major_minor }}ga{{ ver_patch }}-src.tgz
   sha256: {{ sha256 }}
 
